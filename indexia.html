@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Guardian</title>
+    <link rel="stylesheet" href="styleia.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h1>Social Guardian</h1>
+                <button class="options-button" @click="toggleOptionsMenu">...</button>
+                <div class="options-menu" :class="{ 'show': showOptionsMenu }">
+                    <button @click="restartChat">Reiniciar</button>
+                    <button class="download-button" @click="downloadConversation">Baixar Conversa</button>
+                </div>
+            </div>
+            <div class="chat-window">
+                <div class="messages" ref="messages">
+                    <div v-for="message in messages" :key="message.text" :class="['message', message.type]">
+                        <div v-if="message.type === 'bot'" class="avatar">
+                            <img src="image/LogoPreto.jpeg" alt="Avatar">
+                        </div>
+                        {{ message.text }}
+                    </div>
+
+                    <div class="button-container" v-if="showButtons">
+                        <button v-for="option in currentOptions" :key="option" @click="handleOptionClick(option)">
+                            {{ option }}
+                        </button>
+                </div>
+                
+                </div>
+                <div class="input-container" v-if="!showButtons">
+                    <input v-model="inputMessage" @keyup.enter="sendMessage" placeholder="Escreva sua mensagem...">
+                    <button @click="sendMessage">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
