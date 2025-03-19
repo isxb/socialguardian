@@ -91,16 +91,16 @@ section.projeto-chatbot {
 }
 
 section.projeto-chatbot .flex {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    gap: 150px;
 }
 
 .txt-projeto h1 {
     background: linear-gradient(to right, #5356FF 12%, #E23E57);
     -webkit-background-clip: text;
     color: transparent;
-    font-size: 45px;
+    font-size: 40px;
     text-align: center;
 
 }
@@ -111,25 +111,30 @@ section.projeto-chatbot .flex {
     color: transparent;
     font-size: 20px;
     text-align: center;
-    padding: 35px;
-    padding-left: 100px;
+    margin: 10px;
 }
 
 .txt-projeto {
     background: linear-gradient(to right, #0e0e2c 5%, #701e2a);
     border-radius: 50px;
     margin-left: 5px;
-    
 }
 
 .img-projeto img {
     width: 500px;
     border-radius: 30px;
-    float: right;
-    margin-left: -2px;
-    margin-right: -2px;
-   
-    
+   float: left;
+
+   }
+   .img-projeto img {
+    width: 500px;
+    border-radius: 30px;
+   float: left;
+   border: 10px solid transparent;
+    border-image: linear-gradient(to right, #701e2a 5%, #0e0e2c); 
+    border-image-slice: 1; 
+    border-radius: 15px; 
+    background-image: linear-gradient(to right, #701e2a 5%, #0e0e2c); 
 }
 
 
@@ -461,6 +466,37 @@ button:active {
 
 /* RESPONSIVIDADE */
 
+@media (max-width: 1110px) {
+    .projeto-chatbot .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projeto-chatbot .img-projeto {
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 500px; /
+    }
+
+    .projeto-chatbot img {
+        width: 100%; 
+        height: auto;
+    }
+
+    .projeto-chatbot .txt-projeto {
+        text-align: center;
+        max-width: 800px; 
+    }
+
+    .txt-projeto h1{
+        font-size: 6vw;
+    }
+
+    .txt-projeto p{
+        font-size: 6vw;
+    }
+}
+
 @media screen and (max-width: 1021px) {
 
     /* GERAL CONFIG */
@@ -487,10 +523,6 @@ button:active {
     .txt-projeto{
        height: 120vh;
         margin-bottom: 10px;
-    }
-
-    .txt-projeto h1 {
-        font-size: 25px;
     }
 
     .txt-projeto p {
